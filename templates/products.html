@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <tr>
+                    <th class="alert-danger">Name</th>
+                    <th class="alert-danger">Quantity(Kgs)</th>
+                    <th class="alert-danger">Price(Ksh)</th>
+                    <th class="alert-danger">Delete</th>
+                    <th class="alert-danger">Update</th>
+                    <th class="alert-danger">Payment</th>
+                </tr>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.prod_name }}</td>
+                        <td>{{ product.prod_quantity }}</td>
+                        <td>{{ product.prod_price }}</td>
+                        <td><a href="/delete-product/{{ product.id }}">Delete</a></td>
+                        <td><a href="/update-product/{{ product.id }}">Update</a></td>
+                        <td><a href="/payment/{{ product.id }}">Pay via Mpesa</a></td>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

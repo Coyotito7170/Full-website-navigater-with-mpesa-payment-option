@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <section class="form-section">
+        <div class="form-section-container">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                   <h1 class="text-dark text-center">Paying for {{ product.prod_name }}</h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input class="form-control" name="nambari" type="text" placeholder="Enter phone number e.g 2547...">
+                            <input type="hidden" name="bei" value="{{ product.prod_price }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-info" type="submit" value="Pay">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
